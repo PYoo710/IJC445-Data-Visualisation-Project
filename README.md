@@ -17,4 +17,4 @@ Illustrates how average PM2.5 varies by wind direction and wind-speed category. 
 
 ### 4. Polar Plot (PM2.5 × Wind Speed × Wind Direction)
 The polar plot provides a smoothed surface showing PM2.5 concentrations as a function of both wind direction (angle) and wind speed (radius). Colours represent mean PM2.5 levels.  
-This visualisation helps identify meteorological conditions associated with elevated PM2.5. In this dataset, higher concentrations occur under specific wind sectors and wind-speed ranges, suggesting that pollution transported from particular upwind directions influences local air quality at Sheffield Tinsley.
+
