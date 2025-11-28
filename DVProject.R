@@ -15,7 +15,7 @@ library(openair)
 # 1. Load and clean PM2.5 data ------------------------------------------
 
 # Path to folder containing all PM2.5 CSV files
-data_path <- "/Users/zeus/Desktop/Data Visualization/pm"
+data_path <- "Dataset/PM"
 
 # Read all CSV files and combine into a single data frame
 files <- list.files(data_path, pattern = "\\.csv$", full.names = TRUE)
@@ -125,7 +125,7 @@ ggplot(pm25_monthly, aes(x = value, y = month, fill = month)) +
 
 # 4. Load and clean wind data -------------------------------------------
 
-wind_raw <- read.csv("/Users/zeus/Desktop/Data Visualization/wind/wind.csv")
+wind_raw <- read.csv("Dataset/WIND/wind.csv")
 
 # Remove header rows and keep first three columns (time, speed, direction)
 wind_clean <- wind_raw[-c(1, 2), 1:3]
