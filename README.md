@@ -5,7 +5,7 @@
 This project explores how PM2.5 levels vary across time and how they relate to local meteorological conditions at the Sheffield Tinsley monitoring site. Four visualisations were produced: a daily PM2.5 heatmap, a monthly ridgeline distribution, a pollution rose, and a polar plot combining PM2.5 with wind speed and direction. Together, these charts help highlight temporal patterns, seasonal behaviour, and possible upwind pollution sources.
 
 ## Visualisation Summary
-
+<img src="Dataset/Visual/VisualHeat.png" width="500">
 ![Daily PM2.5 Heatmap](Dataset/Visual/VisualHeat.png)
 ### 1. Daily PM2.5 Heatmap
 Shows day-by-day PM2.5 concentrations for each month (Nov–Oct). Darker colours indicate higher daily means, while grey tiles represent days without monitoring. This plot helps identify short pollution episodes and measurement gaps.
