@@ -17,6 +17,7 @@ Displays the distribution of hourly PM2.5 values by month. Wider, right-skewed r
 
 ### 3. Pollution Rose
 Illustrates how average PM2.5 varies by wind direction and wind-speed category. This helps identify which wind sectors are associated with higher pollution, giving clues about potential upwind sources.
+
 <img src="Dataset/Visual/VisualRose.png" width="500">
 
 ### 4. Polar Plot (PM2.5 × Wind Speed × Wind Direction)
