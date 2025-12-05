@@ -8,6 +8,7 @@ This project explores how PM2.5 levels vary across time and how they relate to l
 
 ### 1. Daily PM2.5 Heatmap
 Shows day-by-day PM2.5 concentrations for each month (Nov–Oct). Darker colours indicate higher daily means, while grey tiles represent days without monitoring. This plot helps identify short pollution episodes and measurement gaps.
+
 <img src="Dataset/Visual/VisualHeat.png" width="500">
 
 ### 2. Monthly Ridgeline Plot
