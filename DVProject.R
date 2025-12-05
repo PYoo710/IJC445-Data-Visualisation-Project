@@ -12,7 +12,7 @@ library(ggplot2)
 library(ggridges)
 library(openair)
 
-# 1. Load and clean PM2.5 data ------------------------------------------
+# Load and clean PM2.5 data ------------------------------------------
 
 # Path to folder containing all PM2.5 CSV files
 data_path <- "Dataset/PM"
@@ -35,7 +35,7 @@ air_all <- air_all %>%
   filter(!is.na(datetime))
 
 
-# 2. Graph 1 – Daily PM2.5 heatmap by month -----------------------------
+# Graph 1 – Daily PM2.5 heatmap by month -----------------------------
 
 # Aggregate to daily mean PM2.5
 daily_pm25 <- air_all %>%
@@ -96,7 +96,7 @@ ggplot(daily_pm25_month, aes(x = day, y = 1, fill = pm25)) +
   )
 
 
-# 3. Graph 2 – Monthly PM2.5 ridgeline plot -----------------------------
+# Graph 2 – Monthly PM2.5 ridgeline plot -----------------------------
 
 pm25_monthly <- air_all %>%
   filter(parameter == "pm25") %>%          # keep PM2.5 only
@@ -123,7 +123,7 @@ ggplot(pm25_monthly, aes(x = value, y = month, fill = month)) +
   theme_minimal()
 
 
-# 4. Load and clean wind data -------------------------------------------
+# Load and clean wind data -------------------------------------------
 
 wind_raw <- read.csv("Dataset/WIND/wind.csv")
 
@@ -144,12 +144,12 @@ wind_clean <- wind_clean %>%
 wind_df <- wind_clean %>%
   transmute(
     date = time,
-    ws   = wind_speed_10m / 3.6,   # convert from km/h to m/s
-    wd   = wind_direction_10m
+    wind_speed  = wind_speed_10m / 3.6,   # convert from km/h to m/s
+    wind_direction   = wind_direction_10m
   )
 
 
-# 5. Merge PM2.5 and wind data at hourly level --------------------------
+# Merge PM2.5 and wind data at hourly level --------------------------
 
 pm_hourly <- air_all %>%
   transmute(
@@ -161,23 +161,23 @@ pm_wind_hourly <- pm_hourly %>%
   inner_join(wind_df, by = "date")
 
 
-# 6. Graph 3 – PM2.5 pollution rose -------------------------------------
+# Graph 3 – PM2.5 pollution rose -------------------------------------
 
 pollutionRose(
   pm_wind_hourly,
   pollutant  = "pm25",
-  ws         = "ws",
-  wd         = "wd",
+  ws         = "wind_speed",
+  wd         = "wind_direction",
   key.header = "PM2.5 (µg/m³)"
 )
 
 
-# 7. Graph 4 – Polar plot of PM2.5 by wind speed and direction ----------
+# Graph 4 – Polar plot of PM2.5 by wind speed and direction ----------
 
 polarPlot(
   pm_wind_hourly,
   pollutant = "pm25",
-  ws        = "ws",
-  wd        = "wd",
+  x         = "wind_speed",
+  wd        = "wind_direction",
   main      = "PM2.5 vs wind (Sheffield Tinsley)"
 )
